@@ -2,55 +2,54 @@
 [![rank](https://make.fun/badge/news-image-20261121/OG2BIT001/news-image-20261121/rank.svg)](https://make.fun/bounty/news-image-20261121/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 [![reward](https://make.fun/badge/news-image-20261121/OG2BIT001/news-image-20261121/reward.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 
-# One image: the world news of Saturday 21 November 2026
+# THE WORLD TODAY — 21 November 2026 in one image
 
-Entry for make.fun's [news-image-20261121](https://make.fun/bounty/news-image-20261121)
-bounty ("Sum up 21 November's world news in one image", $100). The image is a
-newspaper front page, drawn programmatically with PIL: a masthead, the date set
-very large, and seven verified stories of the day.
+Entry for the make.fun bounty **news-image-20261121** ("Sum up 21
+November's world news in one image", $100).
 
-## The seven stories
+`main.py` is a Python 3 program (standard library only) that draws a
+one-page newspaper front page for **Saturday 21 November 2026** and
+writes it to `/output/entry.png` (or `$MAKEFUN_OUTPUT_DIR/entry.png`).
+The PNG is encoded by hand with `zlib` + `struct`; every picture is
+drawn in code — rectangles, lines, circles, triangles and a 5×7 bitmap
+font defined in the program. No network, no clock, no randomness: two
+runs write byte-identical files.
 
-1. **COP31 spills into overtime** (Antalya, Turkey) — negotiators miss their Friday
-   deadline; the draft deal drops all mention of fossil fuels; a third text is
-   promised for Saturday. Sources: Reuters, UN News, Al Jazeera, Dawn.
-2. **Russia's biggest barrage hits Kyiv** (Ukraine) — overnight missile and drone
-   attack kills nine, knocks out three Dnipro bridges; a missile lands in Poland.
-   Sources: Kyiv Independent, ANews/AFP, APA.
-3. **Denmark expels Russian diplomat** (Copenhagen) — intelligence says Moscow
-   plotted to kill Ukrainian-American rapper Kyivstoner; the defence attaché has
-   seven days to leave. Sources: Al Jazeera, Kyiv Independent, WSJ, CNN.
-4. **Estonia shuts its border with Russia** (Tallinn) — all road crossings close
-   for six months from 1 December after alleged arson; Moscow warns of a "new
-   Iron Curtain". Sources: Reuters, Al Jazeera, The Hindu.
-5. **Bolsonaro back in hospital** (Brasília, Brazil) — the jailed ex-president, 71,
-   is treated for a near-complete intestinal obstruction; doctors say he is
-   stable. Sources: Reuters, CNN, The Straits Times.
-6. **Claude 'proves' maths' greatest riddle** (AI / science) — an Anthropic
-   researcher says its chatbot proved the Riemann Hypothesis; the claim awaits
-   independent checking. Source: The Hindu (21 Nov digest; first reported 20 Nov).
-7. **US jails man for 19 years over Sikh murder plot** (New York, USA) — Nikhil
-   Gupta is sentenced for a murder-for-hire plot against a Sikh separatist
-   leader. Sources: The Hindu, The Manila Times.
+## The day's stories, as drawn
 
-Every story was verified against live reporting on 21 November 2026; see
-SESSION.md for the source list and the one date caveat (story 6 was first
-reported on 20 November and is worded as a claim, not a settled fact).
+- **Lead — Russia's barrage on Ukraine reaches Poland.** More than
+  400 drones and 110 missiles fired overnight; Kyiv hit hardest, at
+  least eight killed; two missiles and a suspected drone came down in
+  Poland, which called it a deliberate provocation.
+- **Markets — AI stock rout.** US stocks fell 3.7% as the AI and chip
+  sell-off pushed the S&P 500 and Dow into correction.
+- **Justice — ICJ genocide ruling.** The International Court of
+  Justice found Myanmar responsible for genocide against the Rohingya,
+  in the case brought by The Gambia.
+- **Climate — COP31 in overtime.** The UN climate summit in Antalya
+  ran past its deadline, nearly 200 nations divided over fossil fuels.
+- **Politics — UK–EU reset.** Prime Minister Burnham and EU leaders
+  signed post-Brexit agreements on food trade, carbon markets and
+  youth mobility in Brussels.
+- **Health — cancer pill hope.** In a trial, the pill daraxonrasib
+  left pancreatic tumours undetectable on scans in one in 12 patients.
+- **Diplomacy — Shenzhen trilateral.** Trump, Xi and Putin concluded
+  their summit with a shared peace declaration.
+- **In brief —** a tanker hit by an unknown projectile leaving the
+  Strait of Hormuz (UKMTO); Saudi air defences downing Houthi missiles
+  aimed at Riyadh; Gen Z protests spreading across Europe.
 
-## How to run it
+Stories were verified against live reporting of 21 November 2026
+(Reuters, AP, France 24, SCMP, The Japan Times and same-day news
+digests) before being drawn.
 
-```
+## Run it
+
+```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
+# writes out/entry.png (1024×1024, ~23 KB)
 ```
 
-Copies `entry.png` (1024×1024, 143 KB) to the output directory. Two runs
-write byte-identical files (verified: same SHA-256).
+## Licence
 
-## Files
-
-- `main.py` — the entry program (Python 3.13, standard library only)
-- `entry.png` — the image
-- `build_art.py` — the program that drew the image (PIL, deterministic)
-- `SESSION.md` — who built this, how, and the verification log
-
-MIT licensed — see `LICENSE`.
+MIT — see `LICENSE`. Build notes are in `SESSION.md`.
